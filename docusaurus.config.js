@@ -14,7 +14,7 @@ const config = {
   url: 'https://your-docusaurus-test-site.com',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+  baseUrl: '/tw-portfolio/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -29,7 +29,7 @@ const config = {
   // to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en', 'kr', 'de'],
   },
 
   presets: [
@@ -136,4 +136,30 @@ const config = {
     }),
 };
 
-module.exports = config;
+module.exports = {
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'de', 'kr'],
+    localeConfigs: {
+      en: {
+        htmlLang: 'en-GB',
+      },
+      // You can omit a locale (e.g. fr) if you don't need to override the defaults
+      de: {
+        direction: 'rtl',
+      },
+    },
+  },
+  themeConfig: {
+    navbar: {
+      items: [
+        {
+          type: 'localeDropdown',
+          position: 'left',
+        },
+      ],
+    },
+  },
+};
+
+config;
